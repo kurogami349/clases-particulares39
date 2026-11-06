@@ -57,3 +57,13 @@
 .materials-policy>strong{display:block;color:var(--gold);font-size:12px;margin-bottom:6px;}
 .materials-policy p{font-size:10px!important;line-height:1.65;color:#e0e7ed!important;margin:6px 0!important;min-height:0!important;}
 .materials-policy p strong{color:#fff;}
+
+
+/* Enfoque inclusivo y acompañamiento educativo */
+.inclusion{background:var(--ivory);}
+.inclusion-panel{display:grid;grid-template-columns:.8fr 1.2fr;gap:65px;align-items:start;padding:42px;background:var(--paper);border:1px solid var(--line);}
+.inclusion-heading h2{font-family:var(--serif);font-size:clamp(32px,4vw,44px);line-height:1.18;color:var(--navy);font-weight:600;margin:17px 0 0;letter-spacing:-.025em;}
+.inclusion-copy p{font-size:13px;line-height:1.85;color:#566472;margin:0 0 13px;}
+.inclusion-copy p strong{color:var(--navy);}
+.inclusion-copy small{display:block;padding-top:12px;border-top:1px solid var(--line);font-size:10px;line-height:1.7;color:var(--muted);}
+@media(max-width:680px){.inclusion-panel{grid-template-columns:1fr;gap:22px;padding:25px 20px;}}
