@@ -1,9 +1,6 @@
-/* CONFIGURACIÓN INICIAL
-   Reemplaza el valor de whatsappNumber por tu número chileno con código de país,
-   sin +, espacios ni guiones. Ejemplo de formato: 56912345678
-*/
+/* CONFIGURACIÓN DEL SITIO */
 const SITE_CONFIG = {
-  whatsappNumber: "569XXXXXXXX",
+  contactEmail: "hhenriquez2023@udec.cl",
   brandName: "Tu marca educativa"
 };
 
@@ -11,7 +8,6 @@ const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
 const contactForm = document.getElementById("contactForm");
 const feedback = document.getElementById("formFeedback");
-const directWhatsapp = document.getElementById("directWhatsapp");
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -37,30 +33,20 @@ document.querySelectorAll("[data-subject]").forEach(link => {
   });
 });
 
-function hasConfiguredWhatsapp() {
-  return /^569\d{8}$/.test(SITE_CONFIG.whatsappNumber);
-}
-
-function openWhatsapp(message) {
-  if (!hasConfiguredWhatsapp()) {
-    feedback.textContent = "El formulario está preparado. Para enviar solicitudes, primero configura tu número de WhatsApp en script.js.";
-    feedback.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    return;
-  }
-  const url = `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank", "noopener,noreferrer");
-}
-
-directWhatsapp.addEventListener("click", event => {
-  event.preventDefault();
-  openWhatsapp(`Hola, quisiera recibir información sobre las clases particulares de ${SITE_CONFIG.brandName}.`);
+document.querySelectorAll("[data-plan]").forEach(link => {
+  link.addEventListener("click", () => {
+    const plan = link.dataset.plan;
+    const planSelect = document.getElementById("plan");
+    if (planSelect) planSelect.value = plan;
+  });
 });
 
 contactForm.addEventListener("submit", event => {
   event.preventDefault();
   if (!contactForm.reportValidity()) return;
   const data = new FormData(contactForm);
-  const message = [
+  const subject = `Consulta por clases particulares - ${data.get("studentName")}`;
+  const body = [
     `Hola, quisiera solicitar información sobre las clases particulares de ${SITE_CONFIG.brandName}.`,
     "",
     `Estudiante: ${data.get("studentName")}`,
@@ -68,10 +54,13 @@ contactForm.addEventListener("submit", event => {
     `Nivel: ${data.get("level")}`,
     `Curso: ${data.get("grade")}`,
     `Asignatura: ${data.get("subject")}`,
+    `Plan de interés: ${data.get("plan")}`,
     `Modalidad: ${data.get("mode")}`,
     `Comuna: ${data.get("commune") || "No indicada"}`,
     `Disponibilidad: ${data.get("availability") || "Por coordinar"}`,
     `Objetivo: ${data.get("message") || "Por conversar"}`
   ].join("\n");
-  openWhatsapp(message);
+  const mailto = `mailto:${SITE_CONFIG.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = mailto;
+  feedback.textContent = "Se preparó tu correo. Revisa tu aplicación de correo para enviarlo.";
 });
