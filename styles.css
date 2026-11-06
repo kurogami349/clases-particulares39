@@ -32,3 +32,17 @@
 .whatsapp-number-label strong{letter-spacing:.04em;color:var(--gold);}
 @media(max-width:900px){.nav-whatsapp{font-size:10px;padding:10px 9px;}}
 @media(max-width:680px){.main-nav .nav-whatsapp{text-align:center;margin-top:10px;border:0;padding:13px 10px;font-size:12px;}}
+
+
+/* Recargo presencial y plan de enseñanza online */
+.travel-charge{margin:18px 0 16px;padding:14px 13px;background:#f3eee3;border:1px solid #d7b978;text-align:center;display:flex;flex-direction:column;gap:2px;}
+.travel-charge span{font-size:9px;font-weight:800;letter-spacing:.11em;color:#665538;}
+.travel-charge strong{font-family:var(--serif);font-size:34px;line-height:1.2;color:#a33e2f;}
+.travel-charge small{font-size:11px;font-weight:700;color:var(--navy);}
+.online-included{margin:18px 0 16px;padding:14px 13px;background:#edf4ef;border:1px solid #b9d2c1;text-align:center;display:flex;flex-direction:column;gap:3px;}
+.online-included strong{font-size:13px;color:#276343;}
+.online-included small{font-size:11px;color:#425263;}
+.price-grid{align-items:stretch;}
+.price-card{display:flex;flex-direction:column;}
+.price-card>a.button{margin-top:auto;}
+@media(max-width:680px){.travel-charge strong{font-size:32px;}}
