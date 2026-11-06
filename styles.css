@@ -22,3 +22,13 @@
 .email-note{display:block;margin-top:8px;color:#aebdca;font-size:10px;}
 .footer-bottom a{color:var(--gold);}
 @media(max-width:680px){.pricing-explanation{padding:20px 18px;margin-top:25px;}.price-card{min-height:0;}}
+
+
+/* Contacto directo por WhatsApp */
+.nav-whatsapp{display:inline-flex;align-items:center;justify-content:center;background:#168b59;color:#fff;padding:11px 13px;border-radius:3px;font-size:11px;font-weight:700;white-space:nowrap;}
+.nav-whatsapp:hover,.whatsapp-direct:hover{background:#117348;color:#fff;}
+.whatsapp-direct{display:inline-flex;align-items:center;justify-content:center;background:#168b59;color:#fff;padding:12px 16px;border-radius:3px;font-size:12px;font-weight:700;margin:5px 0 10px;}
+.whatsapp-number-label{font-size:13px;color:#fff;margin:0 0 12px;}
+.whatsapp-number-label strong{letter-spacing:.04em;color:var(--gold);}
+@media(max-width:900px){.nav-whatsapp{font-size:10px;padding:10px 9px;}}
+@media(max-width:680px){.main-nav .nav-whatsapp{text-align:center;margin-top:10px;border:0;padding:13px 10px;font-size:12px;}}
