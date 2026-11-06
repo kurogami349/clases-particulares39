@@ -46,3 +46,7 @@
 .price-card{display:flex;flex-direction:column;}
 .price-card>a.button{margin-top:auto;}
 @media(max-width:680px){.travel-charge strong{font-size:32px;}}
+
+/* Cuatro opciones de precio en una cuadrícula equilibrada */
+.price-grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:22px;}
+@media(max-width:680px){.price-grid{grid-template-columns:1fr;}}
